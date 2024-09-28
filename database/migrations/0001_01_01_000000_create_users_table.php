@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\AccountType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,6 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
             $table->string(column: 'company')->nullable();
             $table->string(column: 'address')->nullable();
             $table->string('city')->nullable();
@@ -29,6 +29,7 @@ return new class extends Migration {
             $table->tinyInteger('accept_terms')->default(0);
             $table->string('avatar')->nullable();
             $table->double('wallet')->default(0);
+            $table->string('account_type')->default(AccountType::RETAILER);
             $table->rememberToken();
             $table->timestamps();
         });

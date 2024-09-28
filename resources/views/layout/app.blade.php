@@ -17,8 +17,7 @@
     <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
     <!-- Icons -->
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('backend/libs/toaster/toastify.min.css') }}" rel="stylesheet" type="text/css" />
 
     @stack('head')
 
@@ -114,7 +113,7 @@
     <script src="{{ asset('backend/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('backend/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('backend/libs/feather-icons/feather.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="{{ asset('backend/libs/toaster/toastify.js') }}"></script>
 
     <!-- App js-->
     <script src="{{ asset('backend/js/app.js') }}"></script>

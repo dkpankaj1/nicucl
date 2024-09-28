@@ -2,7 +2,7 @@
 
     <li class="menu-title">Menu</li>
     <li>
-        <a href="#" class="tp-link">
+        <a href="{{ route('dashboard') }}" class="tp-link">
             <i data-feather="home"></i>
             <span> Dashboard </span>
         </a>
@@ -11,12 +11,12 @@
     <li class="menu-title">Banking</li>
 
     <li>
-        <a href="#userMenu" data-bs-toggle="collapse">
-            <i data-feather="cpu"></i>
+        <a href="#bankingMenu" data-bs-toggle="collapse">
+            <i data-feather="dollar-sign"></i>
             <span>Banking</span>
             <span class="menu-arrow"></span>
         </a>
-        <div class="collapse" id="userMenu">
+        <div class="collapse" id="bankingMenu">
             <ul class="nav-second-level">
                 <li>
                     <a href="#" class="tp-link">Money Transfer</a>
@@ -37,12 +37,12 @@
     <li class="menu-title">Mobile</li>
 
     <li>
-        <a href="#userMenu" data-bs-toggle="collapse">
-            <i data-feather="credit-card"></i>
+        <a href="#mobileMenu" data-bs-toggle="collapse">
+            <i data-feather="airplay"></i>
             <span>Mobile Recharge</span>
             <span class="menu-arrow"></span>
         </a>
-        <div class="collapse" id="userMenu">
+        <div class="collapse" id="mobileMenu">
             <ul class="nav-second-level">
                 <li>
                     <a href="#" class="tp-link">List</a>
@@ -140,12 +140,12 @@
 
     <li class="menu-title">Other</li>
     <li>
-        <a href="#userMenu" data-bs-toggle="collapse">
+        <a href="#otherMenu" data-bs-toggle="collapse">
             <i data-feather="cpu"></i>
             <span>Drivers</span>
             <span class="menu-arrow"></span>
         </a>
-        <div class="collapse" id="userMenu">
+        <div class="collapse" id="otherMenu">
             <ul class="nav-second-level">
                 <li>
                     <a href="#" class="tp-link">List</a>
@@ -156,6 +156,53 @@
             </ul>
         </div>
     </li>
+
+    <li class="menu-title">Settings</li>
+    <li>
+        <a href="#settingMenu" data-bs-toggle="collapse">
+            <i data-feather="codepen"></i>
+            <span>Payment Getway</span>
+            <span class="menu-arrow"></span>
+        </a>
+        <div class="collapse" id="settingMenu">
+            <ul class="nav-second-level">
+                <li>
+                    <a href="#" class="tp-link">List</a>
+                </li>
+                <li>
+                    <a href="#" class="tp-link">Add New</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    @if (auth()->check() && auth()->user()->account_type === \App\Enums\AccountType::SUPER_ADMIN)
+        <li>
+            <a href="#chargesMenu" data-bs-toggle="collapse">
+                <i data-feather="credit-card"></i>
+                <span>Charges</span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="chargesMenu">
+                <ul class="nav-second-level">
+                    <li>
+                        <a href="#" class="tp-link">List</a>
+                    </li>
+                    <li>
+                        <a href="#" class="tp-link">Add New</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li>
+            <a href="{{ route('server.index') }}" class="tp-link">
+                <i data-feather="server"></i>
+                <span> Server </span>
+            </a>
+        </li>
+    @endif
+
 
 
 </ul>

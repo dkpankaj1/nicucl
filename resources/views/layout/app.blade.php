@@ -13,12 +13,12 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
-
     <!-- App css -->
     <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
-
     <!-- Icons -->
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"
+        type="text/css" />
 
     @stack('head')
 
@@ -46,18 +46,18 @@
                     <div class="logo-box">
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="" height="22">
+                                <img src="{{ asset('backend/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('frontend/images/logo-light.png') }}" alt="" height="24">
+                                <img src="{{ asset('backend/images/logo-light.png') }}" alt="" height="24">
                             </span>
                         </a>
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="" height="22">
+                                <img src="{{ asset('backend/images/logo-sm.png') }}" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('frontend/images/logo-dark.png') }}" alt="" height="24">
+                                <img src="{{ asset('backend/images/logo-dark.png') }}" alt="" height="24">
                             </span>
                         </a>
                     </div>
@@ -114,21 +114,24 @@
     <script src="{{ asset('backend/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('backend/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('backend/libs/feather-icons/feather.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    <!-- Apexcharts JS -->
+    {{-- <!-- Apexcharts JS -->
     <script src="{{ asset('backend/libs/apexcharts/apexcharts.min.js') }}"></script>
 
     <!-- for basic area chart -->
-    <script src="{{ asset('backend//apexcharts.com/samples/assets/stock-prices.js') }}"></script>
+    <script src="{{ asset('backend/apexcharts.com/samples/assets/stock-prices.js') }}"></script>
 
     <!-- Widgets Init Js -->
-    <script src="{{ asset('backend/js/pages/widgets.init.js') }}"></script>
+    <script src="{{ asset('backend/js/pages/widgets.init.js') }}"></script> --}}
 
     <!-- App js-->
     <script src="{{ asset('backend/js/app.js') }}"></script>
 
+    @include('layout.include.tawk')
+
     {{-- custome script::begin --}}
-    @stack('scripts')
+    @stack('script')
     {{-- custome script::end --}}
 
     {{-- toaster --}}

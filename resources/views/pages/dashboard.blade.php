@@ -3,13 +3,13 @@
     <div class="container-xxl">
         <div class="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
             <div class="flex-grow-1">
-                <h4 class="fs-18 fw-semibold m-0">Widgets</h4>
+                <h4 class="fs-18 fw-semibold m-0">Dashboard</h4>
             </div>
 
             <div class="text-end">
                 <ol class="breadcrumb m-0 py-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Components</a></li>
-                    <li class="breadcrumb-item active">Widgets</li>
+                    <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
             </div>
         </div>
@@ -23,7 +23,7 @@
                             <div class="border border-dark rounded-2 me-2 widget-icons-sections">
                                 <i data-feather="bar-chart" class="widgets-icons"></i>
                             </div>
-                            <h5 class="card-title mb-0">Web Analytics</h5>
+                            <h5 class="card-title mb-0">Welcome,{{ auth()->user()->name }}</h5>
                         </div>
                     </div>
 
@@ -868,7 +868,19 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
+
+    @push('script')
+        <!-- Apexcharts JS -->
+        <script src="{{ asset('backend/libs/apexcharts/apexcharts.min.js') }}"></script>
+
+        <!-- for basic area chart -->
+        <script src="{{ asset('backend/apexcharts.com/samples/assets/stock-prices.js') }}"></script>
+
+        <!-- Widgets Init Js -->
+        <script src="{{ asset('backend/js/pages/widgets.init.js') }}"></script>
+    @endpush
+
 
 </x-app-layout>

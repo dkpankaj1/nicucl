@@ -116,15 +116,6 @@
     <script src="{{ asset('backend/libs/feather-icons/feather.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    {{-- <!-- Apexcharts JS -->
-    <script src="{{ asset('backend/libs/apexcharts/apexcharts.min.js') }}"></script>
-
-    <!-- for basic area chart -->
-    <script src="{{ asset('backend/apexcharts.com/samples/assets/stock-prices.js') }}"></script>
-
-    <!-- Widgets Init Js -->
-    <script src="{{ asset('backend/js/pages/widgets.init.js') }}"></script> --}}
-
     <!-- App js-->
     <script src="{{ asset('backend/js/app.js') }}"></script>
 

@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
-class IsActive
+class CheckActiveStatus
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,12 @@ class IsActive
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // if (Auth::check() && !Auth::user()->is_active) {
+
+        //     // send to activation page
+        //     dd('ok');
+        //     // return redirect()->route('inactive.user');
+        // }
         return $next($request);
     }
 }

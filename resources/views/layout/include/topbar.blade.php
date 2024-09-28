@@ -17,8 +17,7 @@
                         role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="{{ asset('backend/images/users/user-11.jpg') }}" alt="user-image"
                             class="rounded-circle">
-                        <span class="pro-user-name ms-1">
-                            Christian <i class="mdi mdi-chevron-down"></i>
+                        <span class="pro-user-name ms-1">{{ auth()->user()->name }}<i class="mdi mdi-chevron-down"></i>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end profile-dropdown ">

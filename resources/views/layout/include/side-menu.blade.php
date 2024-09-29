@@ -158,13 +158,14 @@
     </li>
 
     <li class="menu-title">Settings</li>
+
     <li>
-        <a href="#settingMenu" data-bs-toggle="collapse">
-            <i data-feather="codepen"></i>
-            <span>Payment Getway</span>
+        <a href="#chargesMenu" data-bs-toggle="collapse">
+            <i data-feather="credit-card"></i>
+            <span>Charges</span>
             <span class="menu-arrow"></span>
         </a>
-        <div class="collapse" id="settingMenu">
+        <div class="collapse" id="chargesMenu">
             <ul class="nav-second-level">
                 <li>
                     <a href="#" class="tp-link">List</a>
@@ -176,25 +177,8 @@
         </div>
     </li>
 
-    @if (auth()->check() && auth()->user()->account_type === \App\Enums\AccountType::SUPER_ADMIN)
-        <li>
-            <a href="#chargesMenu" data-bs-toggle="collapse">
-                <i data-feather="credit-card"></i>
-                <span>Charges</span>
-                <span class="menu-arrow"></span>
-            </a>
-            <div class="collapse" id="chargesMenu">
-                <ul class="nav-second-level">
-                    <li>
-                        <a href="#" class="tp-link">List</a>
-                    </li>
-                    <li>
-                        <a href="#" class="tp-link">Add New</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
 
+    @if (auth()->check() && auth()->user()->account_type === \App\Enums\AccountType::SUPER_ADMIN)
         <li>
             <a href="{{ route('server.index') }}" class="tp-link">
                 <i data-feather="server"></i>

@@ -3,6 +3,13 @@
 namespace App\Http\Middleware;
 
 use App\Enums\AccountType;
+use App\Enums\ChargesType;
+use App\Enums\TxnStatus;
+use App\Helpers\CustomHelper;
+use App\Models\Charges;
+use App\Models\Transaction;
+use App\Models\User;
+use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,10 +29,20 @@ class CheckActiveStatus
             && Auth::user()->is_active === 0
             && Auth::user()->account_type === AccountType::RETAILER
         ) {
+            // create new transaction Order
+            $charges = Charges::where('type', ChargesType::REGISTRATION_FEE)->first();
 
-            // send to activation page
-            dd('ok');
-            // return redirect()->route('inactive.user');
+            $transactionOrder = Transaction::create([
+                "order_id" => CustomHelper::generateOrderId(),
+                "user_id" => Auth::user()->id,
+                "amount" => $charges->amount,
+                "date" => Carbon::now(),
+                "status" => TxnStatus::PENDING,
+            ]);
+            
+            return redirect()->route('payment.processing', [
+                'transaction' => $transactionOrder->id
+            ]);
         }
         return $next($request);
     }

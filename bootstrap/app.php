@@ -13,6 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->append(CheckActiveStatus::class);
+        $middleware->validateCsrfTokens(except: [
+            env('PAYTM_CALLBACK_URL', 'http://nicucl.test/payment/response'),
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

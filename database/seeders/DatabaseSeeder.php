@@ -6,9 +6,9 @@ use App\Enums\AccountType;
 use App\Enums\ChargesType;
 use App\Models\Charges;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,12 +40,13 @@ class DatabaseSeeder extends Seeder
         $charges = [
             [
                 'type' => ChargesType::REGISTRATION_FEE,
-                'amount' => 10,
+                'amount' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ];
 
         Charges::insert($charges);
+
     }
 }

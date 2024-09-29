@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ServerController;
 use App\Http\Middleware\CheckActiveStatus;
@@ -22,6 +23,10 @@ Route::group(['middleware' => ['auth', CheckActiveStatus::class]], function () {
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('payment/processing/{transaction}', [PaymentController::class, 'tnxProcess'])->name('payment.processing');
+    Route::get('payment/response', [PaymentController::class, 'tnxResponse'])->name('payment.response');
+    Route::post('payment/response', [PaymentController::class, 'tnxResponse'])->name('payment.response');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -59,4 +59,9 @@ class User extends Authenticatable
             'account_type' => AccountType::class
         ];
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
